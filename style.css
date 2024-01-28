@@ -1,0 +1,6 @@
+.nav-link:hover{
+    color:#007BFF;
+}
+.navbar{
+    z-index:1000;
+}
