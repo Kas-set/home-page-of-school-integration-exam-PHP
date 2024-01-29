@@ -4,3 +4,78 @@
 .navbar{
     z-index:1000;
 }
+header{
+    height:125vh;
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /
+}
+.bgImage{
+    position:relative;
+    width:100%;
+    height:100%;
+    background-image:url('./images/IMG_1496.JPG');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:top;
+}
+.bgImage::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background-color:rgb(0, 0, 0, 0.75);
+}
+.content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:10%;   
+}
+.content h2{
+    font-size:60px;
+    margin-bottom:15px;
+}
+.section1Container{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-content:center;
+}
+section{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    height:60vh;
+    /* border:1px solid blue; */
+
+}
+.section2{
+    background-color:#28a959;
+    height:75vh;
+}
+.diplomeInfo{
+    background-color:rgb(251 239 139) ;
+    cursor:pointer;    
+}
+.diplomeInfoTitre{
+    border-bottom:4px solid rgb(251 239 139) ;
+}
+.bgInf{
+    /* background-color:#ECFDF5; */
+    background-color:#ECFDF5;
+}
+footer{
+    background-color:rgb(251 239 139) ;
+    
+}
+#lastDiv{
+    background-color:#111827;
+}
