@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if (!$_SESSION['isLogin']) {
+        if(isset($_SESSION['nom']) && !empty($_SESSION['nom'])){
+          $username = $_SESSION['nom'];
+        }
+      # code...
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +16,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
-    
 </head>
 <body>
     <!-- navbar -->
@@ -25,33 +33,33 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto   fw-bold">
-                <li class="nav-item">
-                    <a class="nav-link " href="#" id="postuler"> Postuler au concours
+            <ul class="navbar-nav ms-auto  fw-bold ">
+                <li class="nav-item <?php if(isset($username)){echo'';}else{echo'd-none';} ?>">
+                    <a class="nav-link " href="#" id="postuler "> Postuler au concours
                     </a>
                 </li>
-              <li class="nav-item">
+              <li class="nav-item <?php if(isset($username)){echo'';}else{echo'd-none';} ?>">
                 <a class="nav-link" href="#">
                     Consulter sa Candidature
                 </a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown <?php if(isset($username)){echo'';}else{echo'd-none';} ?>">
                 <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">                  
-                    <i class="fa-regular fa-user"></i> NOM-PRENOM
-                    NOM & PRENOM
+                    <!-- <i class="fa-regular fa-user"></i> -->
+                    <?php if(isset($username)){echo $username;}else{echo'NOM &PRENOM ';} ?>
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item bg-danger text-white" href="#">Se déconnecter</a></li>
                 </ul>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php if(!isset($username)){echo'';}else{echo'd-none';} ?>">
                 <a class="nav-link" href="#">
                     <i class="fa-regular fa-user"></i>
 
                     Se connecter
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php if(!isset($username)){echo'';}else{echo'd-none';} ?>">
                 <a class="nav-link" href="#">
                     <i class="fa-solid fa-user-plus"></i>
 
@@ -115,10 +123,10 @@
                             </th>
                         </td>
                         <td>
-                            <span class="text-center">IAI-TOGO Lomé <span class="ml-4 border rounded shadow"> <a class="btn btn-outline-black " href="#"> CLIKER POUR ACCEDER A LA LOCALISATION</a> </span>  </span>                               
+                            <span class="text-center">IAI-TOGO Lomé <span class="ml-4 border rounded shadow h-100 w-100"> <a class="btn btn-outline-black container " href="#"> CLIKER POUR ACCEDER A LA LOCALISATION</a> </span>  </span>                               
                         </td>
-                        <td>
-                            <span>UNIVERSITE DE KARRA<span class="ml-4 border rounded shadow"> <a class="btn btn-outline-black " href="#"> CLIKER POUR ACCEDER A LA LOCALISATION</a> </span>  </span>                               
+                        <td class="">
+                            <span>UNIVERSITE DE KARRA<span class="ml-4 border rounded shadow"> <a class="btn btn-outline-black container " href="#"> CLIKER POUR ACCEDER A LA LOCALISATION</a> </span>  </span>                               
                         </td>
                         <td>
 
@@ -245,7 +253,7 @@
 
       </div>
       <div class="h-100 w-100  mb-0 h-auto mt-3 d-flex justify-content-center align-items-center"id="lastDiv">
-        <h4 class="text-light d">Petit texte</h4>
+        <h4 class="text-light text-6">Copyright © 2023 GodwinKassa. All rights reserved.</h4>
        </div>
     </footer>
     
