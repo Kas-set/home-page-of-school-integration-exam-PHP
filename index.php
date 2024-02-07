@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (!$_SESSION['isLogin']) {
+    if ($_SESSION['isLogin']) {
         if(isset($_SESSION['nom']) && !empty($_SESSION['nom'])){
           $username = $_SESSION['nom'];
         }
